@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Dashboard</title>
+    <style>
+        /* Background Image */
+        .j1 {
+            background-image: url('https://c1.wallpaperflare.com/preview/743/75/637/money-transfer-hands-pay-wage-business.jpg');
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-position: center;
+          
+        }
+
+        /* Dashboard Container */
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Block Styling for Each Section */
+        .block {
+            width: 320px;
+            height: 200px;
+            margin: 20px;
+            padding: 20px;
+            border: 5px solid #fff;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* Specific Section Styling */
+        .credit, .debit, .details {
+            color: black;
+            font-size: large;
+        }
+
+        .fa-solid {
+            padding-bottom: 20px;
+        }
+
+        /* Heading for the Dashboard */
+        .j2 {
+            color: black;
+            text-align: center;
+            padding-top: 100px;
+            font-size: 30px;
+        }
+
+        /* Button Styling */
+        button {
+            width: 50%;
+            border: 3px solid #28a745;
+            border-radius: 20px;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: palevioletred;
+            border-color: palevioletred;
+            color: white;
+        }
+        .j3{
+            margin-top: 30px;
+            margin-left: 20px;
+        }
+
+        /* Responsive Styling for Small Screens */
+        @media (max-width: 768px) {
+            .dashboard {
+                justify-content: space-evenly;
+            }
+
+            .block {
+                width: 100%; /* Full width on smaller screens */
+                max-width: 350px;
+            }
+
+            .j2 {
+                font-size: 24px;
+                padding-top: 50px;
+            }
+
+            button {
+                width: 80%; /* Increase button size on mobile */
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .j2 {
+                font-size: 20px; /* Smaller heading size */
+            }
+
+            button {
+                width: 90%; /* Make buttons full-width on very small screens */
+                font-size: 16px;
+            }
+
+            .block {
+                padding: 10px; /* Reduce padding inside blocks */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="j1">
+    <div class="j3" onclick="window.location.href='login.html'">
+    <i class="fa-solid fa-arrow-left fa-beat fa-2xl"></i></div>
+    <div class="j2">
+        <h2>DASHBOARD</h2>
+    </div>
+
+    <div class="dashboard">
+        <div class="block details">
+            <h2>ACCOUNT DETAILS</h2>
+            <a href="details.html"><button>Click</button></a>
+        </div>
+        
+        <div class="block credit">
+            <h2>CREDIT CARD</h2>
+            <a href="credit.html"><button>Click</button></a>
+        </div>
+        
+        <div class="block debit">
+            <h2>DEBIT CARD</h2>
+            <a href="debit.html"><button>Click</button></a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

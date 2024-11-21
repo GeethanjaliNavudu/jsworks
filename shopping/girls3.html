@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping</title>
+    
+    <style>
+        #product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        #product img {
+            width: 100%;
+            transition: 200ms;
+        }
+
+        #product img:hover  {
+            transform: scale(1.02);
+        }
+
+        .item {
+            width: 300px;
+            height: 510px;
+            margin: 5px;
+            padding: 5px;
+            border: 2px solid;
+            border-radius: 15px;
+
+        }
+
+        .item img {
+            height: 340px;
+            width: 300px;
+        }
+
+        p {
+            text-align: center;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .pricevalue{
+
+margin: 20px;
+padding: 10px;
+}
+.pricetags{
+display: flex;
+flex-wrap: wrap;
+
+}
+        .g8 {
+            text-align: center;
+            margin-top: 30px;
+            color: purple;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="g8">
+        <h1>Jumpsuits</h1>
+    </div>
+    <div class="container pricetags">
+        <input type="number" id="min-price" placeholder="minprice"  class="pricevalue">
+        <input type="number" id="max-price" placeholder="maxprice"  class="pricevalue">
+        <button id="filter"  class="pricevalue">filter</button>
+    </div>
+
+    <div id="product">
+        <div class="item">
+            <img
+                src="pictures/d1.webp">
+            <p>RUSTET</p>
+            <h2 class="price"> ₹ 350</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/d2.webp">
+            <p>ANALOGUE</p>
+            <h2 class="price"> ₹ 500</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/d3.webp">
+            <p>Casado</p>
+            <h2 class="price"> ₹ 400</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/d4.webp">
+            <p>Allen Solly</p>
+            <h2 class="price"> ₹ 200</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/d5.webp">
+            <p>Asian</p>
+            <h2 class="price"> ₹ 550</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/d6.webp">
+            <p>Red Tape</p>
+            <h2 class="price"> ₹ 700</h2>
+        </div>
+
+        <div class="item">
+            <img
+                src="pictures/d7.webp">
+            <p>TIMEX</p>
+            <h2 class="price"> ₹ 350</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/d8.webp">
+            <p>PETER ENGLAND</p>
+            <h2 class="price"> ₹ 530</h2>
+        </div>
+
+        <div class="item">
+            <img
+                src="pictures/d9.webp">
+            <p>Spark</p>
+            <h2 class="price"> ₹ 700</h2>
+        </div>
+
+        <div class="item">
+            <img
+                src="pictures/d10.webp">
+            <p>RUSTET</p>
+            <h2 class="price"> ₹ 350</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/d11.webp">
+            <p>Fastrack</p>
+            <h2 class="price"> ₹ 450</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/d12.webp">
+            <p>SONATA</p>
+            <h2 class="price"> ₹ 500</h2>
+        </div>
+    </div>
+    <script>
+        const products = document.querySelectorAll('.item');
+        document.getElementById('filter').addEventListener('click', function () {
+
+
+
+
+            const minPI = parseInt(document.getElementById('min-price').value);
+            const maxPI = parseInt(document.getElementById('max-price').value);
+
+            products.forEach((item) => {
+                const priceText = item.querySelector('.price').textContent;
+                const price = parseInt(priceText.replace('₹', ''));
+                if (price >= minPI && price <= maxPI) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

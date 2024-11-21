@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        /* Basic styling */
+        .cart-items {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .cart-item img {
+            max-width: 50px;
+            height: auto;
+        }
+
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Cart</h1>
+
+    <div id="cart-items" class="cart-items"></div>
+
+    <a href="index3.html" class="back-button">Back to Shop</a>
+
+    <script>
+        
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+   
+        if (cart.length === 0) {
+            document.getElementById('cart-items').innerHTML = '<p>Your cart is empty.</p>';
+        } else {
+          
+            cart.forEach(product => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <img src="${product.img}" alt="${product.name}">
+                    <div>
+                        <p>${product.name}</p>
+                        <p>₹ ${product.price}</p>
+                    </div>
+                `;
+                document.getElementById('cart-items').appendChild(itemElement);
+            });
+        }
+    </script>
+</body>
+</html>

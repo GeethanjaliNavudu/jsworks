@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Account Details</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Background & Centering */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1596844280178-33a58c2ab1f2');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* Main Container */
+        .container {
+            background-color: lightskyblue;
+            padding: 30px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* Heading Style */
+        h1 {
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 50px;
+            color: white;
+            margin: 50px 0;
+        }
+
+        h2, h3 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            text-decoration: underline;
+        }
+
+        /* Form Inputs */
+        input {
+            border: 2px solid burlywood;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 250px;
+            height: 40px;
+            margin-top: 20px;
+            padding-left: 10px;
+            color: black;
+        }
+
+        /* Buttons */
+        button {
+            border: 2px solid burlywood;
+            border-radius: 30px;
+            padding: 10px;
+            width: 150px;
+            height: 50px;
+            margin-top: 20px;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: hotpink;
+            border-color: hotpink;
+            color: white;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 35px;
+            }
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+            button {
+                width: 80%;
+            }
+            input {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+            h2, h3 {
+                font-size: 20px;
+            }
+            input {
+                width: 80%;
+            }
+            button {
+                width: 80%;
+            }
+        }
+        .j1 h3{
+           text-decoration: none ;
+        }
+       
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+
+        <button onclick="window.location.href='dashboard.html'">
+            <i class="fa-solid fa-house "></i> Dashboard
+        </button>
+   
+     <div class="j1">
+        
+        <h1>Account Details</h1>
+         <h3>Account Information:</h3>
+            <h3>ACCOUNT HOLDER: Chinni Allaripilla</h3>
+            <h3>ACCOUNT NUMBER: 987654321</h3>
+            <h3>ACCOUNT TYPE: Savings</h3>
+            <h3>BALANCE: <span id="balance">0</span></h3>
+            <input type="number" id="amount" placeholder="Enter Amount">
+            
+            <button id="credit-button">Credit Money</button>
+            <button id="debit-button">Debit Money</button>
+        </div>
+        
+    </div>
+
+    <script>
+        const balanceElement = document.getElementById('balance');
+        const amountInput = document.getElementById('amount');
+        const creditButton = document.getElementById('credit-button');
+        const debitButton = document.getElementById('debit-button');
+
+        let balance = 0;
+
+        creditButton.addEventListener('click', () => {
+            const amount = parseInt(amountInput.value);
+            if (isNaN(amount) || amount <= 0) {
+                alert("Please enter a valid amount.");
+                return;
+            }
+            balance += amount;
+            balanceElement.innerText = balance;
+            amountInput.value = '';
+        });
+
+        debitButton.addEventListener('click', () => {
+            const amount = parseInt(amountInput.value);
+            if (isNaN(amount) || amount <= 0) {
+                alert("Please enter a valid amount.");
+                return;
+            }
+            if (amount > balance) {
+                alert("Insufficient balance");
+            } else {
+                balance -= amount;
+                balanceElement.innerText = balance;
+                amountInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* General page styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Cart icon styles */
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        /* Products section */
+        #products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .items {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .items:hover {
+            transform: translateY(-10px);
+        }
+
+        .items img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .price {
+            font-size: 1.2em;
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        /* Add to Cart button */
+        .add-to-cart {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .add-to-cart:hover {
+            background-color: #c2185b;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .items {
+                max-width: 45%;
+            }
+
+            .cart-icon {
+                top: 10px;
+                right: 10px;
+                padding: 8px;
+            }
+
+            .add-to-cart {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .items {
+                max-width: 90%;
+            }
+
+            .add-to-cart {
+                font-size: 1em;
+                padding: 12px;
+            }
+
+            .cart-icon {
+                top: 5px;
+                right: 5px;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cart-icon">
+        <i class="fa fa-shopping-cart"></i> <span id="cart-count">0</span>
+    </div>
+
+    <div class="g3">
+        <h1>SHIRTS</h1>
+    </div>
+
+   
+    <div id="products">
+        <div class="items">
+            <img src="./pictures/s1.webp" alt="Allen Solly Shirt">
+            <p>Allen Solly</p>
+            <h2 class="price"> ₹ 450</h2>
+            <button class="d1 add-to-cart" data-name="Allen Solly" data-price="450" data-img="./pictures/s1.webp" onclick="window.location.href='cart.html'">Add to Cart</button>
+        </div>
+       
+    </div>
+   
+   
+    <script>
+     
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                
+                const productName = button.getAttribute('data-name');
+                const productPrice = button.getAttribute('data-price');
+                const productImg = button.getAttribute('data-img');
+
+                const product = {
+                    name: productName,
+                    price: productPrice,
+                    img: productImg
+                };
+
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                const productIndex = cart.findIndex(item => item.name === productName);
+
+                if (productIndex === -1) {
+                   
+                    cart.push(product);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+              
+                    updateCartCount();
+
+                 
+                    alert(`${productName} has been added to your cart!`);
+                } else {
+                    
+                    alert(`${productName} is already in your cart.`);
+                }
+
+               
+                window.location.href = 'cart.html';
+            });
+        });
+
+        updateCartCount();
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping</title>
+    
+    <style>
+        #product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        #product img {
+            width: 100%;
+            transition: 200ms;
+        }
+
+        #product img:hover  {
+            transform: scale(1.02);
+        }
+
+        .item {
+            width: 300px;
+            height: 510px;
+            margin: 5px;
+            padding: 5px;
+            border: 2px solid;
+            border-radius: 15px;
+
+        }
+
+        .item img {
+            height: 340px;
+            width: 300px;
+        }
+
+        p {
+            text-align: center;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .pricevalue{
+
+                    margin: 20px;
+                    padding: 10px;
+                    }
+        .pricetags{
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    }
+        .g5 {
+            text-align: center;
+            margin-top: 30px;
+            color: purple;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="g5">
+        <h1>JEANS</h1>
+    </div>
+    <div class="container pricetags">
+        <input type="number" id="min-price" placeholder="minprice"  class="pricevalue">
+        <input type="number" id="max-price" placeholder="maxprice"  class="pricevalue">
+        <button id="filter"  class="pricevalue">filter</button>
+    </div>
+
+    <div id="product">
+        <div class="item">
+            <img
+                src="pictures/j1.webp">
+            <p>Ketch</p>
+            <h2 class="price"> ₹ 999</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/j2.webp">
+            <p>Jack & Jones</p>
+            <h2 class="price"> ₹ 799</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/j3.webp">
+            <p>Comfits</p>
+            <h2 class="price"> ₹ 600</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/j4.webp">
+            <p>Urbano Fashion</p>
+            <h2 class="price"> ₹ 700</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/j5.webp">
+            <p>STUDIO NEXX</p>
+            <h2 class="price"> ₹ 590</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/j6.webp">
+            <p>Levi's</p>
+            <h2 class="price"> ₹ 1500</h2>
+        </div>
+
+        <div class="item">
+            <img
+                src="pictures/j7.webp">
+            <p>Indian Garage </p>
+            <h2 class="price"> ₹ 1200</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/j8.webp">
+            <p>Flying Machine</p>
+            <h2 class="price"> ₹ 1150</h2>
+        </div>
+
+        <div class="item">
+            <img
+                src="pictures/j9.webp">
+            <p>Campus Sutra</p>
+            <h2 class="price"> ₹ 580</h2>
+        </div>
+
+        <div class="item">
+            <img
+                src="pictures/j10.webp">
+            <p>Wrogn</p>
+            <h2 class="price"> ₹ 500</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/j11.webp">
+            <p>Highlander</p>
+            <h2 class="price"> ₹ 950</h2>
+        </div>
+        <div class="item">
+            <img
+                src="pictures/j12.webp">
+            <p>Arrow Sport</p>
+            <h2 class="price"> ₹ 1000</h2>
+        </div>
+    </div>
+    <script>
+        const products = document.querySelectorAll('.item');
+        document.getElementById('filter').addEventListener('click', function () {
+
+
+
+
+            const minPI = parseInt(document.getElementById('min-price').value);
+            const maxPI = parseInt(document.getElementById('max-price').value);
+
+            products.forEach((item) => {
+                const priceText = item.querySelector('.price').textContent;
+                const price = parseInt(priceText.replace('₹', ''));
+                if (price >= minPI && price <= maxPI) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

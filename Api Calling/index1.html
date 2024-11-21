@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Document</title>
+<style>
+.main{
+
+display: flex;
+flex-wrap: wrap;
+gap: 5%;
+}
+.h1{
+padding: 2%;
+height: 450px;
+width: 250px;
+border: 5px solid black;
+margin: 1%;
+
+
+
+}
+.h1 img{
+width: 90%;
+height: auto;
+
+}
+.h1 img:hover {
+    transform: scale(1.05); 
+ 
+}
+.h1 :hover {
+    transform: scale(1.05); 
+    color:purple;
+ 
+}
+.h2{
+  background-color: lavenderblush;
+    justify-content: center;
+    color:purple;
+    position: sticky;
+    top: 0; 
+    font-size: 20px;
+    padding-top:10px;
+    padding-bottom: 0px;
+    font-style: italic;
+    align-items: center;
+    height: 15vh;
+    display: flex;
+}
+.h2:hover{
+    transform: scale(1.05);
+    color:aquamarine;
+}
+</style>
+
+</head>
+
+<body>
+    <div class="h2">
+        <h1>RESTAURANT</h1>
+    </div>
+<div class="main">
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="box">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+<img src="" alt="">
+<h1></h1>
+<p></p>
+</div>
+<div class="h1">
+    <img src="" alt="">
+    <h1></h1>
+    <p></p>
+    </div>
+</div>
+
+<script>
+let cards = document.querySelectorAll(".h1");
+
+async function getData(){
+
+let g4 = await fetch("https://dummyjson.com/recipes")
+let data = await g4.json()
+//console.log(data)
+
+console.log(data.g4)
+
+cards.forEach((element,i)=>{
+element.getElementsByTagName("img")[0].src=data.recipes[i].image;
+element.getElementsByTagName("h1")[0].innerHTML=(""+data.recipes[i].name);
+element.getElementsByTagName("p")[0].innerHTML=data.recipes[i].ingredients.slice(0,2);
+})
+
+}
+getData()
+</script>
+</body>
+</html

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+
+#products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 50px;
+}
+#products img{
+            width: 100%;
+          transition: 200ms;
+       }
+       #products  img:hover{
+         transform: scale(1.02);
+              } 
+.items{
+    width: 300px;
+    height: 510px;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid;
+    border-radius: 15px;
+   
+}
+.items img{
+  height: 340px;
+  width:300px;
+}
+p{
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+}
+.price{
+    text-align: center;
+}
+.g3{
+    text-align: center;
+    margin-top: 30px;
+    color:purple;
+  }  
+.container{
+    display: flex;
+    justify-content: center;
+} 
+.g5{
+    display: flex;
+    justify-content: space-around;
+}
+.g5 button{
+    background-color:white;
+    padding:15px;
+    border: 2px solid;
+    border-radius: 15%;
+    margin-left: 15px;
+    padding-left: 10px;
+   padding-right: 10px;
+
+}
+.g5 button:hover{
+    color:white;
+    background-color: blueviolet;
+    
+}
+.pricevalue{
+
+    margin: 20px;
+    padding: 10px;
+}
+.pricetags{
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+.d1{
+    margin-left: 120px;
+    padding:5px;
+}
+.d1:hover{
+    background-color: gray;
+}
+
+
+   </style>
+</head>
+<body>
+   
+   
+      
+    <div class="g3">
+        <h1>SHIRTS</h1>
+    </div>
+    <div class="container pricetags">
+        <input type="number" id="min-price" placeholder="minprice" class="pricevalue">
+        <input type="number" id="max-price" placeholder="maxprice" class="pricevalue">
+        <input type="button" id="filter" value="filter" class="pricevalue" >
+    </div>
+        <div id="products">
+            <div class="items">
+                <img src=".\pictures\s1.webp">
+                <p>Allen Solly</p>
+                <h2 class="price"> ₹ 450</h2>
+
+            </div>
+      
+            <div class="items">
+                <img src=".\pictures\s2.avif">
+                <p>Arrow</p>
+                <h2 class="price"> ₹ 500</h2>
+              
+                  
+                
+            </div>
+            <div class="items">
+                <img src=".\pictures\s3.webp">
+                <p>Arrow Newyork</p>
+               <h2 class="price"> ₹ 1800</h2>
+             
+              
+              
+            </div>
+            <div class="items">
+                <img src=".\pictures\s4.jpg">
+                <p>TAGDO</p>
+                <h2 class="price"> ₹ 700</h2>
+               
+                    
+                    
+            </div>
+           
+            <div class="items">
+                <img src=".\pictures\s5.webp">
+                <p>Gini & Jony</p>
+                <h2 class="price"> ₹ 400</h2>
+               
+                   
+                  
+            </div>
+            <div class="items">
+                <img src=".\pictures\s6.webp">
+                <p>Here & Now </p>
+                <h2 class="price"> ₹ 1000</h2>
+               
+                  
+                   
+            </div>
+            <div class="items">
+                <img src=".\pictures\s7.webp">
+                <p>FIBERMILL</p>
+                <h2 class="price"> ₹ 650</h2>
+                
+                   
+            </div>
+            <div class="items">
+                <img src=".\pictures\s8.webp">
+                <p>INCLUB</p>
+               <h2 class="price"> ₹ 1200</h2>
+            
+                
+                
+            </div>
+            <div class="items">
+                <img src=".\pictures\s9.webp">
+                <p>HIGHLANDER</p>
+               <h2 class="price"> ₹ 600</h2>
+           
+                
+                
+            </div>
+            <div class="items">
+                <img src=".\pictures\s10.jpg">
+                <p>CB-COLEBROOK</p>
+                <h2 class="price"> ₹ 499</h2>
+               
+                    
+                  
+                    
+            </div>
+            <div class="items">
+                <img src=".\pictures\s11.jpg">
+                <p>Dennis Lingo</p>
+                <h2 class="price">  ₹ 950</h2>
+               
+                   
+            </div>
+            <div class="items">
+                <img src=".\pictures\s12.webp">
+                <p>METRONAUT</p>
+                <h2 class="price"> ₹ 330</h2>
+           
+                   
+                    
+            </div>
+            
+         </div>
+        </div>
+         <script>
+            const g1 = document.querySelectorAll('.items');
+            document.getElementById('filter').addEventListener('click', function(){
+
+            
+        
+            
+                const minPI = parseInt(document.getElementById('min-price').value);
+                const maxPI = parseInt(document.getElementById('max-price').value); 
+        
+                g1.forEach((items) => {
+                    const priceText = items.querySelector('.price').textContent;
+                    const price = parseInt(priceText.replace('₹', '')); 
+                    if (price >= minPI && price <= maxPI) {
+                        items.style.display = 'block';
+                    } else {
+                        items.style.display = 'none';
+                    }
+                });
+            });
+            
+            
+    
+        </script>
+         
+</body>
+</html>

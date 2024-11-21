@@ -1,0 +1,74 @@
+[
+    {
+        "id" : 1,
+        "name": "Allen Solly",
+        "price": 450,
+        "image" : "pictures/s1.webp"
+    },
+    {
+        "id" : 2,
+        "name": "Arrow",
+        "price":  500,
+        "image" : "pictures/s2.avif"
+    },
+    {
+        "id" : 3,
+        "name": "Arrow Newyork",
+        "price": 1800,
+        "image" : "pictures/s3.webp"
+    },
+    {
+        "id" : 4,
+        "name": "TAGDO",
+        "price": 700,
+        "image" : "pictures/s4.jpg"
+    },
+    {
+        "id" : 5,
+        "name": "Gini & Jony",
+        "price": 400,
+        "image" : "pictures/s5.webp"
+    },
+    {
+        "id" : 6,
+        "name": "Here & Now ",
+        "price": 1000,
+        "image" : "pictures/s6.webp"
+    },
+    {
+        "id" : 7,
+        "name": "FIBERMILL",
+        "price": 650,
+        "image" : "pictures/s7.webp"
+    },
+    {
+        "id" : 8,
+        "name": "INCLUB",
+        "price": 1200,
+        "image" : "pictures/s8.webp"
+    },
+    {
+        "id" : 9,
+        "name": "HIGHLANDER",
+        "price": 600,
+        "image" : "pictures/s9.webp"
+    },
+    {
+        "id" : 10,
+        "name": "CB-COLEBROOK",
+        "price": 499,
+        "image" : "pictures/s10.jpg"
+    },
+    {
+        "id" : 11,
+        "name": "Dennis Lingo",
+        "price": 950,
+        "image" : "pictures/s11.jpg"
+    },
+    {
+        "id" : 12,
+        "name": "METRONAUT",
+        "price": 330,
+        "image" : "pictures/s12.webp"
+    }
+]
